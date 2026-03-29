@@ -1,0 +1,6 @@
+@MenuDigitalTPWeb_HostAddress = http://localhost:5283
+
+GET {{MenuDigitalTPWeb_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
