@@ -1,0 +1,20 @@
+
+
+<a  class="button product" [ngClass]="{'happy-product': restaurant().happyHour && product().discount > 0 }" [routerLink]="['/menu-item-page',restaurant().id, product().id]" >
+    <div id="product-detail"  >
+            <img id="image" [src]="product().imageUrl" alt="">
+            
+            <div id="text-container">
+                <p class="product-text"> {{product().name}}</p>
+                <div>
+                    
+                    @if (restaurant().happyHour && product().discount > 0) {
+                        <p class="tachado">${{ product().price }}</p>
+                    }
+                    <p class="product-text">${{ getDiscountedPrice(product()) }}</p>
+                    <!-- <p>{{ product().imageUrl }}</p> -->
+                </div>
+            </div>
+        
+    </div>
+</a>

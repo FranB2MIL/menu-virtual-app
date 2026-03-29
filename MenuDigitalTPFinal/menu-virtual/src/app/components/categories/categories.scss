@@ -1,0 +1,56 @@
+.categories-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+  scrollbar-width: thin;
+}
+
+.category-chip {
+  padding:  20px;
+  
+//   background: #000;
+//   color: white;
+   
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+}
+
+.add-chip {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.new-category-modal {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.new-category-modal input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.new-category-modal button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+button.cancel {
+  background: #ddd;
+}
+
+
+
+button.active {
+  background: #ff90e8;
+  color: white;
+}

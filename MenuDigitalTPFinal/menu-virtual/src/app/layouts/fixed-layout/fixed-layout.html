@@ -1,0 +1,22 @@
+<div id="section-container">
+    <div id="header-container">
+        <button class="button" (click)="handleNavigate()">⌂</button>
+
+
+
+        <h1 id="titulo">LaLettre</h1>
+        <!-- <a class="button" routerLink="login">Login</a> -->
+        <button class="button" (click)="handleAuthButton()">
+            {{ auth.isLoggedIn ? 'Logout' : (isLoginPage ? 'Sign Up' : 'Login') }}
+        </button>
+    </div>
+    <div id="router-outlet">
+        <select class="button" (change)="changeTheme($event)">
+            <option value="auto">Automático</option>
+            <option value="light">Claro</option>
+            <option value="dark">Oscuro</option>
+        </select>
+        
+        <router-outlet />
+    </div>
+</div>

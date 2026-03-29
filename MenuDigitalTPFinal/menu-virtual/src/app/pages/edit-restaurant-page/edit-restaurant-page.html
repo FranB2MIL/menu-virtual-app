@@ -1,0 +1,48 @@
+<div id="section-container">
+    <form id="login-container" #editForm="ngForm" (ngSubmit)="editRestaurant(editForm.value)">
+        <div>
+            <label for="firstName"></label>
+            <input type="text" name="firstName" class="input" placeholder="First Name" id="firstName" [(ngModel)]="restaurant.firstName" #firstName="ngModel" required="true">
+        </div>
+        <div>
+            <label for="lastName"></label>
+            <input type="text" name="lastName" class="input" placeholder="Last Name" id="lastName" [(ngModel)]="restaurant.lastName" #lastName="ngModel" required="true">
+        </div>
+        <div>
+            <label for="localName"></label>
+            <input type="text" name="localName" class="input" placeholder="Local Name" id="localName" [(ngModel)]="restaurant.localName" #localName="ngModel" required="true">
+        </div>
+        <div>
+            <label for="imageUrl"></label>
+            <input type="text" name="imageUrl" class="input" placeholder="Profile Image URL" id="imageUrl" [(ngModel)]="restaurant.imageUrl" #imageUrl="ngModel" required="true">
+        </div>
+        <div>
+            <label for="bioImageUrl"></label>
+            <input type="text" name="bioImageUrl" class="input" placeholder="Bio Image URL" id="bioImageUrl" [(ngModel)]="restaurant.bioImageUrl" #bioImageUrl="ngModel" required="false">
+        </div>
+        <div>
+            <label for="description"></label>
+            <input type="text" name="description" class="input" placeholder="Description" id="Description" [(ngModel)]="restaurant.description" #description="ngModel" required="false">
+        </div>
+        <div id="email-input">
+            <label for="email"></label>
+            <input type="text" name="email" class="input" placeholder="email address" id="email" [(ngModel)]="restaurant.email" #email="ngModel" required="true" autocomplete="email" />
+            @if (email.invalid && !email.pristine) {
+
+            }
+        </div>
+        <div id="password-input">
+            <label for="password"></label>
+            <input type="password" name="password" class="input" placeholder="password" id="password" [(ngModel)]="restaurant.password" #password="ngModel" required="true" minlength="4" autocomplete="current-password" />
+        </div>
+        <div id="button-container">
+            <!-- <a class="button" routerLink="loged">Register</a> -->
+            <button type="submit" [disabled]="editForm.invalid" class="button">Editar</button>
+            <!-- <button class="button" routerLink="loged" [disabled]="loginForm.invalid">Login</button> -->
+            <button class="button" routerLink="loged">Return</button>
+        </div>
+
+    </form>
+
+    <button class="button" (click)="deleteRestaurant(this.restaurant.id)">Borrar Cuenta</button>
+</div>

@@ -1,0 +1,44 @@
+<div id="section-container">
+
+    <div id="profile-container" [ngStyle]="{
+        'background-image': 'url(' + restaurant?.bioImageUrl + ')'
+        }">
+        <div id="restaurant-container">
+            <img id="restaurant-img" src={{restaurant?.imageUrl}} alt="">
+
+            <div id="res-info">
+                <p>
+                    {{ restaurant?.localName || 'Nombre del restaurante' }}
+                </p>
+                <p>
+                    {{restaurant?.description}}
+                </p>
+            </div>
+
+        </div>
+        <div id="edit-button-container">
+            <a class="button" id="edit-restaurant" routerLink="/editRestaurant">Edit Restaurant</a>
+        </div>
+    </div>
+    <div>
+        <app-categories></app-categories>
+    </div>
+    <button class="button" id="create-product-button" routerLink="/createProduct"> + </button>
+    <div *ngIf="restaurant">
+
+        <label>Happy Hour</label>
+        <input type="checkbox" [(ngModel)]="restaurant.happyHour" (ngModelChange)="toggleHappyHour()" />
+    </div>
+    @if(this.restaurant.happyHour){
+    <h1 class="happy-time">¡¡Happy Hour!!</h1>
+}
+
+    <div *ngFor="let product of productsService.products; let i = index">
+
+        <span class="menu-item">
+            <app-restaurant-menu-item [product]="product" [index]="i" [restaurant]="restaurant" />
+        </span>
+
+
+    </div>
+</div>

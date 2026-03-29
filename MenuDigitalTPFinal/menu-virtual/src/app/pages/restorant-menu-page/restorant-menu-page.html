@@ -1,0 +1,34 @@
+<div id="profile-container" [ngStyle]="{
+    'background-image': 'url(' + restaurant?.bioImageUrl + ')'
+  }">
+    <div id="restaurant-container">
+        <img id="restaurant-img" [src]="restaurant?.imageUrl" alt="">
+        <div id="res-info">
+            <p>
+                {{restaurant?.localName}}
+            </p>
+            <p>
+                {{restaurant?.description}}
+            </p>
+        </div>
+    </div>
+</div>
+<div>
+    <app-categories [restaurantId]="restaurant?.id"
+                    [selectedCategoryId]="selectedCategoryId"
+                    (onCategorySelected)="filterByCategory($event)">
+    </app-categories>
+</div>
+@if(this.restaurant.happyHour){
+    <h1 class="happy-time">¡¡Happy Hour!!</h1>
+}
+<div>
+    <div  *ngFor="let product of productService.products; let i = index " >
+        
+        <span class="menu-item">
+            <app-restaurant-menu-item [product]="product" [index]="i" [restaurant]="restaurant"/>
+        </span>
+       
+            
+    </div>
+</div>

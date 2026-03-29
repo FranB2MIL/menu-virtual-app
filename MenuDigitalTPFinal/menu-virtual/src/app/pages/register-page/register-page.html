@@ -1,0 +1,35 @@
+<div id="section-container">
+    <form id="login-container" #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+        <div>
+            <label for="firstName"></label>
+            <input type="firstName" name="firstName" class="input" placeholder="First Name" id="firstName" ngModel #firstName="ngModel" required="true">
+        </div>
+        <div>
+            <label for="lastName"></label>
+            <input type="lastName" name="lastName" class="input" placeholder="Last Name" id="lastName" ngModel #lastName="ngModel" required="true">
+        </div>
+        <div>
+            <label for="localName"></label>
+            <input type="localName" name="localName" class="input" placeholder="Local Name" id="localName" ngModel #localName="ngModel" required="true">
+        </div>
+        
+        <div id="email-input">
+            <label for="email"></label>
+            <input type="email" name="email" class="input" placeholder="email address" id="email" ngModel #email="ngModel" required="true" autocomplete="email" />
+            @if (email.invalid && !email.pristine) {
+
+            }
+        </div>
+        <div id="password-input">
+            <label for="password"></label>
+            <input type="password" name="password" class="input" placeholder="password" id="password" ngModel #password="ngModel" required="true" minlength="4" autocomplete="current-password" />
+        </div>
+        <div id="button-container">
+            <!-- <a class="button" routerLink="loged">Register</a> -->
+            <button class="button" [disabled]="registerForm.invalid" >Register</button>
+            <!-- <button class="button" routerLink="loged" [disabled]="loginForm.invalid">Login</button> -->
+            <button class="button" routerLink="">Return</button>
+        </div>
+
+    </form>
+</div>

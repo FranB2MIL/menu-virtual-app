@@ -1,0 +1,22 @@
+<div class="section-container">
+    <!-- <div id="login-container"> -->
+        <form id="login-container" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <div id="email-input">
+                <label for="email"></label>
+                <input type="email" name="email" class="input" placeholder="Email address" id="email" ngModel #email="ngModel" required="true" autocomplete="email" />
+                @if (email.invalid && !email.pristine) {
+                
+                }
+            </div>
+            <div id="password-input">
+                <label for="password"></label>
+                <input type="password" name="password" class="input" placeholder="Password" id="password" ngModel #password="ngModel" required="true" minlength="4" autocomplete="current-password"/>
+            </div>
+            <div id="button-container">
+                <button class="button">Login</button>
+                <!-- <button class="button" routerLink="loged" [disabled]="loginForm.invalid">Login</button> -->
+                <button class="button" routerLink="">Return</button>
+            </div>
+
+        </form>
+</div>

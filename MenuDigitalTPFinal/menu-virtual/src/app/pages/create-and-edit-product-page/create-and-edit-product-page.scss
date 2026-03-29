@@ -1,0 +1,22 @@
+#form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //margin-right: 60px; //acomodo hacia el medio 
+    gap: 15px;
+    
+}
+.input{
+    margin-top: 10px;
+}
+
+#button-container{
+    display: flex;
+    justify-content: space-between;
+    width: 210px;
+    margin-top: 15px;
+}
+
+#page-title{
+    text-align: center;
+}

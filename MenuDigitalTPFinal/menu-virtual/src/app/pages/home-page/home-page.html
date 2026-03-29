@@ -1,0 +1,24 @@
+<div class="section-container">
+
+    <div>
+
+        <div id="restaurant-list-container">
+            @for (restaurant of restaurants; track restaurant.id) {
+            <a [routerLink]="['/restaurant', restaurant.id]">
+                <div class="button" id="restaurant-container">
+                    <img id="restaurant-img" src="{{restaurant.imageUrl}}" alt="">
+                    <div id="res-info">
+                        <p id="res-name">
+                            {{restaurant.localName}}
+                        </p>
+                        <p>
+                            {{restaurant.description}}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            }
+        </div>
+
+    </div>
+</div>

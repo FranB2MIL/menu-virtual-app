@@ -1,0 +1,34 @@
+
+
+<div class="categories-container">
+    
+    
+    <button class="button category-chip" (click)="selectCategory(c.id)" [class.active]="c.id === selectedCategoryId" *ngFor="let c of categories">
+        {{ c.id }} - {{ c.name }} 
+        
+    </button>
+    
+    <div class="button" *ngIf="isLoged" (click)="showCreate = true">
+        + Nueva
+    </div>
+    <div class="button" *ngIf="isLoged" (click)="showCreate2 = true">
+        - Borrar
+    </div>
+</div>
+<div class="new-category-modal" *ngIf="showCreate2">
+    <form #newCategoryForm="ngForm" (ngSubmit)="deleteCategory(newCategoryForm.value)">
+        <input class="input" type="text" placeholder="ID categoría" name="id" id="id" ngModel required="true" maxlength="15" #id="ngModel">
+        <button class="button" type="submit" [disabled]="!newCategoryForm.valid">Borrar</button>
+    </form>
+    <button class="button" (click)="cancel()">Cancelar</button>
+
+</div>
+
+<div class="new-category-modal" *ngIf="showCreate">
+    <form #newCategoryForm="ngForm" (ngSubmit)="createCategory(newCategoryForm.value)">
+        <input class="input" type="text" placeholder="Nombre categoría" name="name" id="name" ngModel required="true" maxlength="15" #name="ngModel">
+        <button class="button" type="submit" [disabled]="!newCategoryForm.valid">Crear</button>
+    </form>
+    <button class="button" (click)="cancel()">Cancelar</button>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="container" id="full-container">
+    <div id="inner-container">
+        <!-- <p>{{producto | json}}</p> -->
+        <img id="picture-container" src="{{producto?.imageUrl}}" alt="">
+        <div id="details-container">
+            <div>
+                <h1 id="name">{{producto?.name}}</h1>
+                <p id="category"></p>
+            </div>
+            <div id="price">
+                
+                <p>Discount: % {{producto?.descuento}}</p>
+                <h2 id="precio">${{ getDiscountedPrice(producto!) }}</h2>
+                
+            </div>
+        </div>
+    </div>
+    <div id="details">
+        <div>
+            {{producto?.description}}
+        </div>
+        <div id="product-buttons">
+            @if(this.authService.isLoggedIn){
+
+            <button class="button" [routerLink]="['/products',producto?.id,'edit']">Editar</button>
+
+            <button class="button" id="boton-borrar" (click)="deleteProduct(id())">Borrar</button>
+            }
+        </div>
+
+    </div>
+</div>

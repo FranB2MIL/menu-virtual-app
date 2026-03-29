@@ -1,0 +1,58 @@
+<div>
+    <div id="page-title">
+        @if(idProducto()){
+        Editar producto.
+        }@else {
+        Crear producto.
+        }
+    </div>
+    <div id="form-container">
+        <form (ngSubmit)="handleFormSubmission(newProductForm.value)" #newProductForm="ngForm">
+            <div>
+                <!-- <label for="name">Nombre</label> -->
+                <input class="input" placeholder="Nombre" type="text" name="name" id="name" ngModel [ngModel]="productoBack?.name" required="true"
+                    maxlength="150" #name="ngModel">
+                @if (name.dirty && name.invalid) {
+                <p class="error">El nombre es obligatorio</p>
+                }
+            </div>
+            <div>
+                <!-- <label for="details">Detalle</label> -->
+                <input class="input" placeholder="Descripcion" type="text" name="description" id="description" ngModel [ngModel]="productoBack?.description"
+                    required="true"  #description="ngModel">
+            </div>
+            <!-- <div>
+               
+                <input class="input" placeholder="Descuento" type="text" name="discount" id="discount" ngModel
+                    maxlength="50" #discount="ngModel">
+            </div> -->
+            <div>
+                <!-- <label for="price">Precio</label> -->
+                <input class="input" placeholder="Precio" type="text" name="price" id="price" ngModel [ngModel]="productoBack?.price" required="true"
+                    maxlength="50" #price="ngModel">
+            </div>
+            <div>
+                <!-- <label for="price">Precio</label> -->
+                <input class="input" placeholder="Descuento" type="text" name="descuento" id="descuento" ngModel [ngModel]="productoBack?.descuento" required="true"
+                    maxlength="50" #descuento="ngModel">
+            </div>
+            <div>
+                <!-- <label for="image">Imagen</label> -->
+                <input class="input" placeholder="Imagen" type="text" name="imageUrl" id="imageUrl" ngModel [ngModel]="productoBack?.imageUrl" required="false"
+                     #imageUrl="ngModel">
+            </div>
+            <div>
+                <!-- <label for="image">Imagen</label> -->
+                <input class="input" placeholder="ID Categoria" type="text" name="categoryId" id="categoryId" ngModel [ngModel]="productoBack?.categoryId" required="true"
+                    maxlength="50" #categoryId="ngModel">
+            </div>
+            <div id="button-container">
+                <button class="button" type="submit"
+                    [disabled]="newProductForm.invalid || solicitudABackEnCurso">Confirmar</button>
+                <button class="button" routerLink="/loged">Volver</button>
+            </div>
+        </form>
+    </div>
+    ID-Categoria
+    <app-categories></app-categories>
+</div>
