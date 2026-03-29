@@ -24,3 +24,8 @@ This project simulates a digital ordering system similar to platforms like Pedid
 - Integrating full stack applications
 
 ## 📂 Project Structure
+backend/   -> .NET API  
+frontend/  -> Angular app
+
+## 📫 Contact
+- LinkedIn: https://www.linkedin.com/in/franciscojbollea/
